@@ -1,0 +1,24 @@
+<?
+if(!isset($_SESSION))
+{
+	session_start();
+}
+
+include("gs_db.php");
+ensure_logged_in();
+include("gs_top.html");
+
+?>
+
+<html>
+<body>
+	<div><?=$_SESSION['flash']?></div>
+	<a href="gs_logout.php">Logout</a>
+	<br>
+
+	<h1>Board</h1>
+
+	<?board_list();?>
+
+	<a href="gs_board_write.php"><input type=button value="Write"></a>
+<? include("gs_bottom.html"); ?>

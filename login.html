@@ -1,0 +1,72 @@
+<?
+	if(!isset($_SESSION)){session_start(); }
+?>
+
+<html>
+<head>
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	*{font-family: 'Nanum Gothic', sans-serif;}
+	
+	#all{ padding:100px; }
+	fieldset {background-color: #c0eae7; margin-left: auto; margin-right:auto; width:400px; border-radius: 15px 15px;}
+	label.heading {float: left; text-align:right; }
+	legend {background-color:white; border:1px solid #7f8080; padding:7px; border-radius: 15px 15px;}
+	#btn{margin:10px;}
+	.input-search:focus { outline: 0; }
+	.mainbtn:focus { outline: 0; }
+	.loginbtn:focus { outline: 0; }
+    .input-search { width: 200px; height: 26px; border:3px solid #7acdc8; border-radius: 15px 15px; }
+	.loginbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 70px; height: 30px;}
+	.mainbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 100px; height: 30px;}
+</style>	
+
+
+</head>
+
+<body>
+
+	<form method=post action=login.php >
+    <div id=all>
+    <p align="center"><img src="logo.png" /></p>
+		<fieldset>
+			<legend> 로그인 정보 </legend>
+            <table width="350" align="center">
+            <tr align="center">
+            <td >아 이 디 </td>
+			<td><input type=text class=input-search name=id id="id"/></td>
+            </tr>
+            <tr align="center" >
+			<td >패스워드</td>
+            <td><input type=password name=passwd class=input-search id="passwd"/></td>
+            </tr>
+           <tr>
+           <td align="center" colspan="2">
+           	<div id=btn>
+			<input type=submit class=loginbtn value="로그인" />
+			<a href="main.html"><input type=button class=mainbtn value="메인으로 가기" /></a>
+            </div>
+            </td>
+            </tr>
+ 			</table>
+		</fieldset> 
+ <?
+
+
+if(isset($_SESSION['flash'])){
+
+?>
+<br>
+<div  align="center" id=flash><?= $_SESSION['flash'] ?></div>
+
+<?
+unset($_SESSION['flash']);
+
+}
+?>       
+        </div>
+	</form>
+   
+</body>
+
+</html>

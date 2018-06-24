@@ -1,0 +1,13 @@
+<?
+	include("ensure.php");
+	ensure_logged_in();
+	include("top.html");
+?>
+	<section>
+    
+<?
+		gongji_list($_SESSION['id']);
+?>
+	</section>
+</body>
+</html>

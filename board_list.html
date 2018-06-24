@@ -1,0 +1,18 @@
+<?
+	include("ensure.php");
+	ensure_logged_in();
+	include("top.html");
+?>
+	<section>
+    <img src="review.png" width=150 height=87 />
+    
+<?
+		if($_POST['type'] == "write")
+			Insert_data($_POST);
+		else if($_POST['type'] == "update")            
+		    update_record($_POST);
+		board_list();
+?>
+	</section>
+</body>
+</html>

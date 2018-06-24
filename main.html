@@ -1,0 +1,45 @@
+<?
+	include("top_main.html");
+?>
+
+	<div id=main align="center">
+    <img src="main.jpg"/>
+    </div>
+    
+	<section>
+    
+    <img src="best.png" /><br />
+    	<div id=harm>
+        
+	<form method=post action=main.html>      
+        <select name=select class=best>
+				<option value=100>100점
+				<option value=90>90점 이상
+                <option value=80>80점 이상
+                <option value=70>70점 이상
+                <option value=60>60점 이상
+			</select>
+            
+			<input type=submit class=bestbtn value=검색>
+			</form>
+    </div>
+    <?
+    	if(!isset($_POST['select']))
+        	ranking(100);
+        else
+        	ranking($_POST['select']);
+    ?>    
+
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />  
+    <br />
+    <br />
+</body>
+</html>

@@ -1,0 +1,477 @@
+<?
+	if(!isset($_SESSION)) session_start();
+	
+?>
+
+<html>
+<head>
+
+	<title>
+	</title>
+	<link href='http://fonts.googleapis.com/css?family=Sancreek' rel='stylesheet' type='text/css'>
+	<style>
+
+	* {margin: 0; padding: 0;}
+	body	{font-family: 'Times New Roman', serif; background: #eeeeee}
+	li	{list-style:none;}
+	a	{text-decoration:none;}
+	img	{border:0;}
+	nav{margin: 50px 0;}
+
+	#header	{position:relative; width: 1080px; height:180px; margin: 0 auto;}
+	#header>#title	{position:absolute; right:20px; top:50px; font-family:'Sancreek',cursive; }
+	#page-wrapper	{position:relative; width:1080; height:100%; margin: 0 auto; background:white; text-align:center;}
+	#left-side	{float:left; width: 110px;}
+	#right-side	{float:right; width: 80px;}
+	#content	{float:left; width:920px; margin: 50px 10px;}
+
+	section.tab-title{overflow:hidden;}
+	section.tab-title>ul>li>label
+	{
+		display:block; float:left; width:100px; 
+		height:30px; line-height:30px; text-align:center;
+		border:1px solid black; background:white; 
+		color:black; 
+	}
+	section.tab-title>ul>li>label:hover{background:black; color:white;}
+
+	input[type=radio]{display:none;}
+	input[type=submit] {display :none;}
+	section.tab-title>ul>li>ul{display:none;}
+
+	div.tab-item:nth-of-type(3)>div{text-align: left; }
+	div.tab-item:nth-of-type(1)>span
+	{
+		background: black; 
+		color: white; 
+		border-radius: 10px 10px 10px 0; 
+		vertical-align: top; 
+		padding: 3px;
+		font-size : 15pt ;
+		font-weight : bold ;
+
+	}
+	div.tab-item:nth-of-type(1){margin: 100px 0;}
+	div.tab-item
+	{
+		display : none;
+		padding: 10px 20px;
+
+	}
+	
+	input[type=radio]:nth-of-type(1):checked ~div.tab-item:nth-of-type(1),
+	input[type=radio]:nth-of-type(2):checked ~div.tab-item:nth-of-type(2),
+	input[type=radio]:nth-of-type(3):checked ~div.tab-item:nth-of-type(3),
+	input[type=radio]:nth-of-type(4):checked ~div.tab-item:nth-of-type(4),
+	input[type=radio]:nth-of-type(5):checked ~div.tab-item:nth-of-type(5)
+	{
+		display : block ; 
+	}
+
+	div.info input[type=radio] ,
+	div.info-item
+	{
+		display : none ;
+	}
+
+	div.info > input[type=radio]:nth-of-type(1):checked ~ div.info-item:nth-of-type(1) ,
+	div.info > input[type=radio]:nth-of-type(2):checked ~ div.info-item:nth-of-type(2) ,
+	div.info > input[type=radio]:nth-of-type(3):checked ~ div.info-item:nth-of-type(3)		
+	{
+		display : block ;
+	}
+	div.info
+	{
+		width : 900px ;
+		border : 1px solid #ccc ;
+		margin: 50px auto;
+	}
+
+	div.info label
+	{
+		margin : 0px ;
+		padding : 0px ;
+		display : inline-block ;
+		width : 100px ;
+		height : 35px ;
+		line-height : 40px ;
+		text-align : center ;
+		font-size : 9pt ;
+		font-weight : bold ;
+		color : #fff ;
+		border-bottom : 1px solid #333 ;
+		background : #333 ;
+	}
+
+	div.info-item
+	{
+		height : 100px ;
+		padding : 10px ;
+		font-size : 9pt ;
+height: auto;
+	}
+
+	div.info > input[type=radio]:nth-of-type(1):checked ~ label:nth-of-type(1) ,
+	div.info > input[type=radio]:nth-of-type(2):checked ~ label:nth-of-type(2) ,
+	div.info > input[type=radio]:nth-of-type(3):checked ~ label:nth-of-type(3)		
+	{
+		color : #333 ;
+		background : #fff ;
+		border-bottom : 1px solid #fff ;
+	}
+
+	table
+	{
+		border-spacing: 0;
+		margin:20px auto;
+		border-collapse: collapse;
+
+	}
+	table td, th{
+		border: 2px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+
+	
+
+	</style>
+
+</head>
+
+<body>
+	<div><?=$_SESSION['flash']?></div>
+	<div>
+		<header id="header">
+			<div id="title"><a hef=#>
+				<h1>GS INMI</h1></a>
+			</div>
+
+		</header>
+		<div> <a href="gs_member.html"> 회원가입 </a></div>
+		<div> <a href="gs_login.html">로그인 </a></div>
+		<div> <a href="gs_logout.php">로그아웃 </a></div>
+		
+		<div id ="page-wrapper">
+
+			<nav id="left-side">
+				<h3>Menu</h3>
+				<section class="tab-title">
+					<ul>
+						<li><label for=main>main</label></li>
+						<li><label for=signup>sign up </label></li>
+						<li><label for=graduation> graduation info </lable></li>
+						<li><label for=qna> QnA </label></li>
+							
+					</ul>
+				</section>
+			</nav>
+
+			<div id="content">
+				<form action=main.php>
+				<input id="main" type=submit name=tab>
+				</form>	
+				<form action=gs_signup.php>
+				<input id="signup" type=submit name=tab >
+				</form>		
+				<input type=hidden>
+				<input type=hidden>	
+	
+				<input id="graduation" type=radio name=tab >
+				<input id="qna" type=radio name=tab >
+				
+				<div class="tab-item">
+
+					<span>gradation simulation</span>
+				</div>
+				<div class="tab-item">
+					<h3>sign up</h3><br>
+					
+					<hr/>
+					
+
+				</div>
+				<div class="tab-item">
+					<h3>graduation infomation</h3><br>
+					<hr/>
+					<div class="info">
+
+						<input type="radio" id="info-1" name="tab-toggle" checked="checked">
+						<input type="radio" id="info-2" name="tab-toggle">
+						<input type="radio" id="info-3" name="tab-toggle">		
+						<label for="info-1">normal</label>
+						<label for="info-2">msc</label>
+						<label for="info-3">accord</label>
+
+						<div class="info-item">
+10학번 이후 부터는 전공 5과목 이상 영어강의로 수강하여야한다.
+
+							<table>
+								<tr>
+									<td>학번</td>
+									<td>교양</td>
+								</tr>
+								<tr>
+									<td>06-09</td>
+
+									<td>7개 영역 각각 한 과목 이상 이수
+(언어교과, 인문과학, 사회과학, 자연과학, 예술 및 체육, 글쓰기(비판적사고와토론, 창조적사고와표현, 학문적글쓰기), 실용영어)<br>
+※ 언어교과영역: 제2외국어영역 인정<br>
+※ 실용영어영역: 교양영어1·2, 대학영어1·2 교과목 인정</td>
+
+								</tr>
+								<tr>
+									<td>10-11</td>
+									<td>기초교양: 교양영어1, 글쓰기영역(비판적사고와토론, 창조적사고와표현, 학문적글쓰기) 이수<br>
+핵심교양: 본인 전공영역 이외의 세 영역에서 각각 1과목 이수<br>
+※ 교양영어1: 실용영어1~3, 대학영어1 교과목 인정</td>
+
+								</tr>
+								<tr>
+									<td>12-13</td>
+																	<td>기초교양: 대학영어1, 글쓰기1영역(비판적사고와토론, 창조적사고와표현) 이수<br>
+핵심교양: 본인 전공영역 이외의 세 영역에서 각각 1과목 이수<br>
+※ 대학영어1: 실용영어1~3, 교양영어1 교과목 인정<br>
+※ 글쓰기1영역: 학문적글쓰기 교과목 인정</td>
+
+								</tr>
+
+							</table>
+
+							<table>
+								<tr>
+									<td>학번</td>
+									<td>학사졸업요건</td>
+								</tr>
+								<tr>
+									<td>09</td>
+									<td>교양과목 30점(필수과목 포함, 예술및체육영역 2학점 필히 포함) 이상과, 전공과목 60점(필수과목 포함) 이상을 포함하여 132학점 이수하여야 한다.</td>
+								</tr>
+								<tr>
+									<td>10-12</td>
+									<td>교양과목 20학점 이상과, 지정교양 30학점 이상, 전공과목 60학점(필수과목 포함) 이상을 포함하여 132학점 이상 이수하여야 한다.</td>
+								</tr>
+								<tr>
+									<td>13</td>
+									<td>교양과목 21학점 이상과, 지정교양 30학점 이상, 전공과목 80학점(필수과목 포함) 이상을 포함하여 132학점 이상 이수하여야 한다.</td>
+								</tr>
+							</table>
+
+						</div>
+						<div class="info-item">
+							
+							<table>
+								<caption>09 학번</caption>
+								<tr>
+									<td>ABEEK교과구분</td>
+									<td>최소이수학점</td>
+									<td>인증필수과목</td>
+								</tr>
+								<tr>
+									<td>전문교양</td>
+									<td>18</td>
+									<td>10과목 20학점</td>
+								</tr>
+								<tr>
+									<td>지정교양</td>
+									<td>30</td>
+									<td>10과목 30학점</td>
+								</tr>
+								<tr>
+									<td>전공</td>
+									<td>60</td>
+									<td>10과목 29학점</td>
+								</tr>
+								<tr>
+									<td>인증최소이수학점</td>
+									<td>108</td>
+									<td>인미공 졸업이수 학점 = 132</td>
+								</tr>
+							</table>
+
+							<table>
+								<caption>10 학번</caption>
+								<tr>
+									<td>ABEEK교과구분</td>
+									<td>최소이수학점</td>
+									<td>인증필수과목</td>
+								</tr>
+								<tr>
+									<td>전문교양</td>
+									<td>18</td>
+									<td>10과목 20학점</td>
+								</tr>
+								<tr>
+									<td>지정교양</td>
+									<td>30</td>
+									<td>10과목 30학점</td>
+								</tr>
+								<tr>
+									<td>전공</td>
+									<td>60</td>
+									<td>15과목 44학점</td>
+								</tr>
+								<tr>
+									<td>인증최소이수학점</td>
+									<td>108</td>
+									<td>인미공 졸업이수 학점 = 132</td>
+								</tr>
+							</table>
+
+							<table>
+								<caption>11 학번</caption>
+								<tr>
+									<td>ABEEK교과구분</td>
+									<td>최소이수학점</td>
+									<td>인증필수과목</td>
+								</tr>
+								<tr>
+									<td>전문교양</td>
+									<td>20</td>
+									<td>8과목 19학점</td>
+								</tr>
+								<tr>
+									<td>지정교양</td>
+									<td>30</td>
+									<td>10과목 30학점</td>
+								</tr>
+								<tr>
+									<td>전공</td>
+									<td>60</td>
+									<td>16과목 45학점</td>
+								</tr>
+								<tr>
+									<td>인증최소이수학점</td>
+									<td>110</td>
+									<td>인미공 졸업이수 학점 = 132</td>
+								</tr>
+							</table>
+
+							<table>
+								<caption>12 학번</caption>
+								<tr>
+									<td>ABEEK교과구분</td>
+									<td>최소이수학점</td>
+									<td>인증필수과목</td>
+								</tr>
+								<tr>
+									<td>전문교양</td>
+									<td>20</td>
+									<td>8과목 20학점</td>
+								</tr>
+								<tr>
+									<td>지정교양</td>
+									<td>30</td>
+									<td>10과목 30학점</td>
+								</tr>
+								<tr>
+									<td>전공</td>
+									<td>60</td>
+									<td>16과목 45학점</td>
+								</tr>
+								<tr>
+									<td>인증최소이수학점</td>
+									<td>110</td>
+									<td>인미공 졸업이수 학점 = 132</td>
+								</tr>
+							</table>
+
+							<table>
+								<caption>13 학번</caption>
+								<tr>
+									<td>ABEEK교과구분</td>
+									<td>최소이수학점</td>
+									<td>인증필수과목</td>
+								</tr>
+								<tr>
+									<td>전문교양</td>
+									<td>22</td>
+									<td>8과목 22학점</td>
+								</tr>
+								<tr>
+									<td>지정교양</td>
+									<td>30</td>
+									<td>10과목 30학점</td>
+								</tr>
+								<tr>
+									<td>전공</td>
+									<td>80</td>
+									<td>10과목 28학점</td>
+								</tr>
+								<tr>
+									<td>인증최소이수학점</td>
+									<td>132</td>
+									<td>인미공 졸업이수 학점 = 132</td>
+								</tr>
+							</table>
+
+※ MSC 교과목에서 전산학 과목은 2011년 2월 졸업생까지만 한시적으로 인정하며, 2011년 2월 이후 졸업생은 전산학이 제외된 수학과 기초과학 교과목으로만 30학점 이상 이수하여야 함. 또한 전공 80학점 중 설계과목을 12학점 이상 반드시 이수하여야 함(2013년 2월 졸업 이전인 학생은 설계학점 이수 기준 : 18학점) <br>
+※ 각 프로그램 내규에서 지정한 선이수교과목의 경우, 교과목 이수체계를 준수하여 수강하여야 함(선이수교과목은 학과
+가 개별 지정 운영함)
+						</div>
+						<div class="info-item">
+							<table>
+								<tr>
+									<td></td>
+									<td>전공학점</td>
+									<td>필수프로젝트과목</td>
+									<td>영어</td>
+								</tr>
+								<tr>
+									<td>2013학번</td>
+									<td>80</td>
+									<td>6과목(전공기초프로젝트1/2, 산학프로젝트1/2, 졸업프로젝트/논문)</td>
+									<td>토익720 (토플CBT 217, 토플 iBT 81, 토플일반 553, TEPS 570)</td>
+								</tr>
+								<tr>
+									<td>2012학번</td>
+									<td>69</td>
+									<td>6과목(전공기초프로젝트1/2, 산학프로젝트1/2, 졸업프로젝트/논문)</td>
+									<td>토익660 (토플CBT 207, 토플 iBT 76, 토플일반 540, TEPS 527)</td>
+								</tr>
+								<tr>
+									<td>2011학번</td>
+									<td>66</td>
+									<td>2과목(졸업프로젝트/논문)</td>
+									<td>토익630 (토플CBT 200, 토플 iBT 72, 토플일반 533, TEPS 505)</td>
+								</tr>
+								<tr>
+									<td>2010학번 및 이전</td>
+									<td>63</td>
+									<td>2과목(졸업프로젝트/논문)</td>
+									<td>토익600 (토플CBT 190, 토플 iBT 68, 토플일반 520, TEPS 483)</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="tab-item">
+					<h3>QnA</h3><br>
+					<hr/>
+<?
+
+include("gs_db.php");
+
+?>				
+<div><?=$_SESSION['flash']?></div>
+	
+	<br>
+
+	<h1>Board</h1>
+
+	<? board_list();?>
+
+	<a href="gs_board_write.php"><input type=button value="Write"></a>
+				</div>
+				
+			</div>
+
+			<div id="right-side">
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+

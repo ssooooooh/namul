@@ -1,0 +1,17 @@
+<?
+	include("ensure.php");
+	ensure_logged_in();
+	include("top.html");
+?>
+	<section>
+    <img src="sungbun.png" width=150 height=74 />
+<?
+		if($_POST['type'] == "write")
+			Insert_data2($_POST);
+		else if($_POST['type'] == "update")            
+		    update_record2($_POST);
+		board_list2();
+?>
+	</section>
+</body>
+</html>

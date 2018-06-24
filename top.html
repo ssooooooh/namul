@@ -1,0 +1,109 @@
+<?
+	if(!isset($_SESSION))
+		session_start();
+	include("db.php");
+?>
+<html>
+<head>
+	<title></title>
+	<style>
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+		* { font-family: 'Nanum Gothic', sans-serif; margin: 0; padding: 0; color:#7f8080; }
+		body {  color:#7f8080; background-image:url(bg.jpg); background-repeat:repeat-x;  }
+
+		li { list-style: none; }
+		a { text-decoration: none; }
+		img { border: 0; }
+		
+		#header { width: 960px; height: 160px; margin: 0 auto; border:0; 
+			position: relative; overflow: hidden; }
+			#logo{ margin:15px 0 0 100px;}
+			
+		#header > #side { width: 300px; height: 25px; 
+			position: absolute; right: 20px; top: 5px; border: 0; }
+			
+			
+		#header > #side > li { float: left; width: 50px; height: 8px;
+			padding: 10px; border:0; font-size:11px;}
+			
+		
+		nav { width: 960px; height: 50px; margin: 0 auto; border:0; }
+		nav > ul { overflow: hidden; padding:0 0 0 180px;}
+		nav > ul > li { float: left; width: 100px; height: 20px; padding: 10px; border:0;}
+		section { width: 800px; height:600px; margin: 0 auto; border:0; padding: 50px 80px;}	
+		.input-write:focus { outline: 0; }
+    	.input-write { width: 500px; height: 26px; border: 0px; border-bottom:1px solid #CCC;}
+		.input-content:focus { outline: 0; }
+	    .input-content { width:700px; height: 300px; border:1px solid #CCC;}
+		.writebtn:focus { outline: 0; }
+		.writebtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; 
+		width: 70px; height: 30px;}			
+		
+	.mainbtn:focus { outline: 0; }
+	.mainbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 150px; height: 30px;}
+		
+		
+	#all{ padding:100px; }
+	fieldset {background-color: #c0eae7; margin-left: auto; margin-right:auto; width:300px; border-radius: 15px 15px;}
+	label.heading {float: left; text-align:right; }
+	legend {background-color:white; border:1px solid #7f8080; padding:7px; border-radius: 15px 15px;}
+	#btn{margin:10px;}
+	
+	.input-del:focus { outline: 0; }
+	.delbtn:focus { outline: 0; }
+    .input-del { width: 200px; height: 26px; border:3px solid #7acdc8; border-radius: 15px 15px; }
+	.delbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 70px; height: 30px;}
+	
+	.input-menu:focus { outline: 0; }
+	.menubtn:focus { outline: 0; }
+    .input-menu { width: 150px; height: 26px; border:3px solid #7acdc8; border-radius: 15px 15px; }
+	.menubtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 50px; height: 30px;}
+	
+	
+	.cospic{ width:200px;}
+	.cospic2{ width:300px;}
+		
+	.list{padding:20px;}
+	
+	area:focus { outline: 0; }
+		
+	</style>
+</head>
+<body>
+	<div id=header>
+    	<div id=logo>
+        	<a href="main.html"><img src="logo.png"></a>
+        </div>
+<?
+	if(!isset($_SESSION['id']))
+	{
+?>
+		<div id=side>
+			<li><a href="login.html">로그인   </a></li>
+			<li><a href="member.html">회원가입   </a></li>
+			<li><a href="sitemap.html">사이트맵   </a></li>
+			<li><a href="coder.html">개발자</a></li>
+		</div>
+<?
+	}
+	else
+	{
+?>
+		<div id=side>
+			<li><a href="logout.php">로그아웃   </a></li>
+			<li><a href="sitemap.html">사이트맵   </a></li>
+			<li><a href="coder.html">개발자</a></li>
+		</div>
+<?
+	}
+?>
+	</div>
+	<nav>
+		<ul>
+        	<li><a href="gongji.html"><img src="nav0.png"></a></li>
+			<li><a href="cosmetic.html"><img src="nav1.png"></a></li>
+			<li><a href="ingredient.php"><img src="nav2.png"></a></li>
+			<li><a href="board_list.html"><img src="nav3.png"></a></li>
+			<li><a href="board_list2.html"><img src="nav4.png"></a></li>
+		</ul>
+    </nav>

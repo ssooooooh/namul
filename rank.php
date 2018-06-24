@@ -1,0 +1,10 @@
+<?
+	include("top.html");
+	?>
+	<section>
+    <?
+	ranking($_POST['select']);
+	?>
+	</section>
+    <?
+?>

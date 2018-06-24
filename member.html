@@ -1,0 +1,104 @@
+<html>
+<head>
+	<style>
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	*{font-family: 'Nanum Gothic', sans-serif;}
+	#login{ width:600px; margin:0 auto; background-color:#d7f1ef;}
+	table{font-size:14px; color:#333;}
+	.input-search:focus { outline: 0; }
+    .input-search { width: 270px; height: 26px; border:3px solid #7acdc8;}
+	.input-area:focus { outline: 0; }
+    .input-area { width: 270px; height: 70px; border:3px solid #7acdc8;}
+	.input-num:focus { outline: 0; }
+	.input-num { overflow:hidden; width: 80px;; height: 26px; border:3px solid #7acdc8;}
+	.loginbtn:focus { outline: 0; }
+	.mainbtn:focus { outline: 0; }
+	.loginbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 70px; height: 30px;}
+	.mainbtn{background-color:#7acdc8; border: 1 solid  #7acdc8; color:white;  border-radius: 15px 15px; width: 100px; height: 30px;}
+
+	</style>
+</head>
+<body>
+<p align="center"><img src="loginlogo.png" /></p><br>
+	<div id=login>
+	<form method=post action=member.php>
+	<table align="center" cellpadding="5" cellspacing="20">
+		<tr>
+			<th align="center">아이디</th>
+			<td align="left"><input type=text maxlength=10 class=input-search name=id></td>
+		</tr>
+		<tr>
+			<th align="center">이름</th>
+			<td align="left"><input type=text  maxlength=10 class=input-search name=name></td>
+		</tr>
+		<tr>
+			<th align="center">비밀번호</th>
+			<td align="left"><input type=password  maxlength=10 class=input-search name=passwd></td>
+		</tr>
+		<tr>
+			<th align="center">성별</th>
+			<td align="center"><input type=radio name=gender value=M checked>남 
+			    <input type=radio name=gender value=F>여</td>
+		</tr>
+		<tr>
+			<th align="center">휴대전화</th>
+			<td align="left">
+			<select class=input-num name=phone1>
+				<option value=010>010
+				<option value=011>011
+				<option value=016>016
+				<option value=017>017
+				<option value=018>018
+				<option value=019>019
+			</select>
+			- <input type=text class=input-num maxlength=4 name=phone2>
+			- <input type=text class=input-num maxlength=4 name=phone3>
+			</td>
+		</tr>
+		<tr >
+			<th align="center">피부 타입</th>
+			<td align="center">
+				<input type=radio name=skintype value=a checked>건성 
+				<input type=radio name=skintype value=b checked>중성 
+				<input type=radio name=skintype value=c checked>지성 
+				<input type=radio name=skintype value=d checked>복합성 
+			</td>
+		</tr>
+		<tr >
+			<th align="center">선호하는 브랜드</th>
+			<td align="center">
+				<input type=checkbox name=brand value=ini>이니스프리 
+				<input type=checkbox name=brand value=etu>에뛰드 
+				<input type=checkbox name=brand value=skinf>스킨푸드 
+				<input type=checkbox name=brand value=thes>더샘 
+			</td>
+		</tr>
+		<tr>
+			<th align="center">약관동의</th>
+			<td >
+				<textarea class=input-area >
+개인정보의 수집 및 이용 목적
+
+가. 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산
+컨텐츠 제공, 특정 맞춤 서비스 제공, 물품배송 또는 청구서 등 발송, 본인인증, 구매 및 요금 결제, 요금추심
+
+나. 회원관리
+회원제 서비스 제공, 개인식별, 네이버 이용약관 위반 회원에 대한 이용제한 조치, 서비스의 원활한 운영에 지장을 미치는 행위 및 서비스 부정이용 행위 제재, 가입의사 확인, 가입 및 가입횟수 제한, 만14세 미만 아동 개인정보 수집 시 법정 대리인 동의여부 확인, 추후 법정 대리인 본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달, 회원탈퇴의사의 확인
+                </textarea><br>
+				<input type=checkbox name=check value=yes> 약관에 동의합니다. 
+			</td>
+        </tr>
+        <tr align="center">
+        <td colspan="2" align="center">
+		<input type=submit class=loginbtn value='회원 가입'> 
+	    <input type=reset  class=loginbtn value='다시 작성'> 
+        <a href="main.html"><input type=button class=mainbtn value="메인으로 가기" /></a>
+    </td>
+		
+	</table> 
+
+	</form>
+	</div>
+ <br><br>
+</body>
+</html>
